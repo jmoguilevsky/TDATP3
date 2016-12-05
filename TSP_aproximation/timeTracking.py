@@ -17,9 +17,12 @@ files = [ "15_cities_input.csv", "17_cities_input.csv", "19_cities_input.csv",
 
 def get_elapsed_time(graph):
     start = time.time()
-    TSP_tour_aproximation(graph,0)
+    tour = TSP_tour_aproximation(graph,0)
     tiempo_total = time.time() - start
+    #print("recorrido: ")
+    #print(tour)
     return tiempo_total
+
 
 def tograph(dists):
     m = len(dists)
@@ -27,7 +30,8 @@ def tograph(dists):
     graph = Digraph(n*m)
     for i in range (0, m):
         for j in range (0,n):
-            graph.add_edge(i,j,dists[i][j])
+            if i != j:
+                graph.add_edge(i,j,dists[i][j])
     return graph
 
 if __name__ == '__main__':
@@ -38,3 +42,4 @@ if __name__ == '__main__':
         elapsed_time = get_elapsed_time(graph)
         print("Elapsed time:")
         print(elapsed_time)
+        print(" ")
