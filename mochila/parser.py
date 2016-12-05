@@ -69,7 +69,6 @@ def parse_bag_file(csv_file):
 
 		print('oldTime', timeit.timeit(problem2, number=1))
 
-		break
 		#print(optimum, z)
 
 def parse(fileName):
